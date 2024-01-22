@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=C\:\\tools\\project\\sts4_project\\spring-petclinic\\.git;
-GitRepositoriesView.GitDirectories.relative=spring-petclinic\\.git;
+GitRepositoriesView.GitDirectories=C\:\\tools\\project\\sts4_project\\spring-petclinic\\.git;C\:\\tools\\project\\sts4_project\\.git;
+GitRepositoriesView.GitDirectories.relative=spring-petclinic\\.git;.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
