@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+
+<head>
+<meta charset="UTF-8">
+<style>
+    table{
+        border:1px solid black;
+        font-size : 1.5em;
+    }
+    tbody tr:nth-child(1){
+        width : 50px;
+    }
+    tbody tr:nth-child(2){
+        width : 100px;
+    }
+    tbody tr:nth-child(3){
+        width : 50px;
+    }
+    button{
+        margin-top : 10px;
+        margin-left : 400px;
+    }
+</style>
+<title>board</title>
+</head>
+<script>
+    fetch('/restapi/board', {
+        method:'GET'
+    }).then(function (response) {
+        return response.json();
+    }).then(function (result){
+            if(!result.error){
+                let data = result.payload;
+                let table = document.getElementById('board');
+                for(let i in data){
+                    board = data[i];
+                    let row = table.insertRow(parseInt(i)+1);
+                    let cell0 = row.insertCell(0);
+                    let cell1 = row.insertCell(1);
+                    let cell2 = row.insertCell(2);
+                    let url = '/board/' + board.boardno;
+                    cell0.innerHTML = board.boardno;
+                    cell1.innerHTML = '<a href="'+url+'">'+board.title + '</a>';
+                    cell2.innerHTML = board.writer;
+                }
+            }
+    }).catch(function (err){
+        console.warn(err);
+    })
+</script>
+<body>
+    <table id="board">
+        <thead>
+            <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <button onclick="location.href = '/board/write';">글 작성</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

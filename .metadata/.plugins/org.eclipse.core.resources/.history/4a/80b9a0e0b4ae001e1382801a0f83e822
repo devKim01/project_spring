@@ -1,0 +1,5 @@
+package com.shanep.repositories;
+
+public class BoardRepository {
+
+}

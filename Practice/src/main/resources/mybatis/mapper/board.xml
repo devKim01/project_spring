@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--DB 네임스페이스 적어야함 -->
+<mapper namespace="postgres">
+
+	<select id="getBoardList" resultType="boardvo">
+	<![CDATA[
+		select board_no as no, board_title as title, contents, writer_name as userName, reg_date as regDate
+		from public.board
+	]]>
+	</select>
+</mapper>

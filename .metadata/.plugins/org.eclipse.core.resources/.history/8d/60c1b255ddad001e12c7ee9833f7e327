@@ -1,0 +1,4 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/study
+spring.datasource.username=jykim
+spring.datasource.password=jein0915
+spring.datasource.filter.enabled=ture

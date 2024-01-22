@@ -1,0 +1,5 @@
+package hello.hellospring.controller.repository;
+
+public class MemeryMemberRepository2 implements MemberRepository{
+
+}

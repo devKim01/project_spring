@@ -1,0 +1,5 @@
+package com.example.productorderserver.product;
+
+public class ProductServiceTest {
+
+}

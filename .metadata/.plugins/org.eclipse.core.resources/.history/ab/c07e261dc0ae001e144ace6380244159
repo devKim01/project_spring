@@ -1,0 +1,6 @@
+package com.shanep.enumpkg;
+
+public interface ServiceResult {
+	OK
+	FAIL, NOTEXIST, HASCHILD;
+}
