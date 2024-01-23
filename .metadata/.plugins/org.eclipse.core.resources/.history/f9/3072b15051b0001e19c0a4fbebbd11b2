@@ -1,9 +1,0 @@
-package hello.hellospring.repository;
-
-import jakarta.persistence.EntityManager;
-
-public class JpaMemberRepository implements MemberRepository{
-	private final EntityManager em;
-	
-	 
-}

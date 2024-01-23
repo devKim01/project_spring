@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ 
+ >
+// 해당 html페이지에서만 사용할 css, script
+ <!--<th:block layout:fragment="/css/login.css"> </th:block>
+  <th:block layout:fragment="script"> </th:block>-->
+ <link rel="stylesheet" type="text/css" href="/css/login.css">
+
+<header th:replace="~{fragment/header :: headerFragment}"></header>
+<div layout:fragment="con" class="login-wrapper">
+	<h2>Login</h2>
+	<form method="post" action="서버의url" id="login-form">
+		<input type="text" name="userName" placeholder="Email">
+		<input type="password" name="userPassword" placeholder="Password">
+		<label for="remember-check">
+			<input type="checkbox" id="remember-check">아이디 저장하기
+		</label>
+		<input type="submit" value="Login">
+	</form>
+</div>
+<footer th:replace="~{fragment/footer :: footerFragment}"></footer>
+<html>
