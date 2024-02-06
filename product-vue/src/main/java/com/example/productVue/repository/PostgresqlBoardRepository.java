@@ -11,13 +11,11 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-import org.springframework.stereotype.Repository;
 
 
 
-@Repository
+
 public class PostgresqlBoardRepository {
 	private final DataSource dataSource;
 	

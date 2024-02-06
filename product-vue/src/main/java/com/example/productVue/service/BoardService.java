@@ -1,15 +1,17 @@
 package com.example.productVue.service;
 
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.productVue.dto.BoardDTO;
 import com.example.productVue.repository.BoardEntity;
 import com.example.productVue.repository.BoardRepository;
 
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -26,11 +28,27 @@ public class BoardService {
 		this.boardRepository = boardRepository;
 	}
 	
-	public List<BoardEntity> getBoardList() {
-		System.out.println("서비스 ");
-		List<BoardEntity> list = boardRepository.findAll();
-		return list;
+	public List<BoardDTO> getBoardList() {
+		System.out.println("서비스 시작");
+		List<BoardEntity> boardEntities = boardRepository.findAll();
+		List<BoardDTO> dtos = new ArrayList<>();
+		
+		for(BoardEntity entity : boardEntities) {
+			BoardDTO dto = BoardDTO.builder()
+                    .idx(entity.getIdx())
+                    .author(entity.getAuthor())
+                    .title(entity.getTitle())
+                    .contents(entity.getContents())
+                    .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
+                    .build();
+
+            dtos.add(dto);
+            System.out.println(dto.getIdx());
+		}
+		System.out.println("서비스 끝");
+		return dtos;
 	}
+	
 //	/**
 //     * 게시글 목록 가져오기
 //     */
